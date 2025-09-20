@@ -1,0 +1,6 @@
+@tailwind base;@tailwind components;@tailwind utilities;:root{color-scheme:dark}
+body{@apply min-h-screen bg-gradient-to-b from-[#0b1220] to-[#0a0f1a] text-slate-100}
+.card{@apply rounded-xl border border-white/10 bg-white/5 px-4 py-3}
+.btn{@apply inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/10 px-4 py-2 hover:bg-white/15}
+.badge{@apply text-[11px] px-2 py-0.5 rounded bg-white/10}
+.navbar{@apply fixed bottom-0 inset-x-0 z-30 border-t border-white/10 bg-black/40 backdrop-blur}

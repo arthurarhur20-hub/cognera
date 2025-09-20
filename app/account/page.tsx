@@ -1,0 +1,2 @@
+import BottomNav from '@/components/ui/BottomNav'
+export default function Account(){return(<main className='pb-16 p-4 max-w-screen-md mx-auto'><h1 className='text-xl font-semibold mb-3'>Кабинет</h1><div className='grid gap-3'><div className='card'><div className='text-xs text-slate-400'>Баланс</div><div className='text-sm'>0 ₽</div></div><div className='card'><div className='text-xs text-slate-400'>Подписка</div><div className='text-sm'>Free</div></div></div><BottomNav/></main>)}

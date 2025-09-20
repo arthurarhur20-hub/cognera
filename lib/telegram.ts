@@ -1,0 +1,2 @@
+import crypto from 'crypto'
+export function checkTelegramInitData(initData: string, botToken: string){const url = new URLSearchParams(initData);const hash=url.get('hash');url.delete('hash');const data=Array.from(url.entries()).sort((a,b)=>a[0].localeCompare(b[0])).map(([k,v])=>`${k}=${v}`).join('\n');const secret=crypto.createHmac('sha256','WebAppData').update(botToken).digest();const computed=crypto.createHmac('sha256',secret).update(data).digest('hex');return computed===hash}

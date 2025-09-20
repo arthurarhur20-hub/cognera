@@ -1,0 +1,4 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { checkTelegramInitData } from '@/lib/telegram'
+import { setSession } from '@/lib/session'
+export async function POST(req:NextRequest){const { initDataRaw } = await req.json(); const BOT=process.env.BOT_TOKEN||''; if(!initDataRaw||!BOT) return NextResponse.json({ok:false,error:'NO_BOT_TOKEN_OR_DATA'},{status:400}); const ok=checkTelegramInitData(initDataRaw,BOT); if(!ok) return NextResponse.json({ok:false,error:'BAD_SIGNATURE'},{status:401}); try{const url=new URLSearchParams(initDataRaw); const userStr=url.get('user'); const user = userStr?JSON.parse(userStr):null; await setSession({tg_id:user?.id,username:user?.username}); return NextResponse.json({ok:true})}catch(e:any){return NextResponse.json({ok:false,error:'INIT_PARSE_FAIL'},{status:400})}}

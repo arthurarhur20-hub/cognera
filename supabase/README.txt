@@ -1,0 +1,1 @@
+Схему и сид данные возьми из архива COGNERA_enterprise_skeleton.zip и выполни в Supabase Studio (SQL Editor).

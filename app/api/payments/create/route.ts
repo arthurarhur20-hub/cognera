@@ -1,0 +1,3 @@
+import { NextRequest, NextResponse } from 'next/server'
+export async function POST(req:NextRequest){const {amount_cents, provider}=await req.json(); if(provider==='stripe'){const sk=process.env.STRIPE_SECRET_KEY; if(!sk) return NextResponse.json({ok:false,error:'NO_STRIPE_KEY'},{status:501}); // TODO: create Checkout session via Stripe API
+return NextResponse.json({ok:true, url:'https://checkout.stripe.com/test_session'})} if(provider==='yookassa'){const shop=process.env.YOOKASSA_SHOP_ID, secret=process.env.YOOKASSA_SECRET_KEY; if(!shop||!secret) return NextResponse.json({ok:false,error:'NO_YOOKASSA_KEYS'},{status:501}); return NextResponse.json({ok:true, url:'https://yookassa.ru/test'})} return NextResponse.json({ok:false,error:'BAD_PROVIDER'},{status:400}) }

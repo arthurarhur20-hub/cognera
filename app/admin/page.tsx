@@ -1,0 +1,1 @@
+export default function Admin(){return(<main className='p-6 max-w-screen-lg mx-auto'><h1 className='text-2xl font-bold mb-4'>Админка (скелет)</h1><ul className='list-disc pl-6 text-sm text-slate-300'><li>Пользователи</li><li>Подписки</li><li>Тарифы/Лимиты</li><li>Сервисы</li><li>Платежи</li><li>Usage</li><li>Рефералы</li><li>Тикеты</li><li>Настройки</li></ul></main>)}
